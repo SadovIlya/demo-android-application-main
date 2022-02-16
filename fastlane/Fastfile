@@ -32,7 +32,15 @@ platform :android do
         "android.injected.signing.key.password" => "123456",
       }
     )
-    crashlytics
+    
+    appcenter_upload(
+      api_token: "83683087f9c8c0fdb4cf00f09e0dc108b2bdbfbb",
+      owner_name: "lisavod",
+      owner_type: "user", # Default is user - set to organization for appcenter organizations
+      app_name: "sadov-demo-android",
+      file: "app/build/outputs/apk/release/app-release.apk",
+      notify_testers: true # Set to false if you don't want to notify testers of your new release (default: `false`)
+    )
   
     # sh "your_script.sh"
     # You can also use other beta testing services here
