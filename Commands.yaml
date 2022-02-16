@@ -1,0 +1,23 @@
+#Скомпилируйте и откройте пакет Release
+./gradlew assembleRelease 
+
+./gradlew bundleRelease
+
+#Генерация подписи
+keytool -genkey -alias signFiles -keystore examplestore 
+
+#Подписанный APK
+ ./gradlew assembleRelease \
+ -Pandroid.injected.signing.store.file=examplestore \
+ -Pandroid.injected.signing.store.password=123456 \
+ -Pandroid.injected.signing.key.alias=signFiles \
+ -Pandroid.injected.signing.key.password=123456 
+#Загрузка в appcenter
+appcenter distribute release --app lisavod/sadov-demo-android --file app/build/outputs/apk/release/app-release.apk --group Collaborators
+
+#Сборка через fastline 
+fastlane init
+
+
+
+
