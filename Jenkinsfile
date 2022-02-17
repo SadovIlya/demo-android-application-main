@@ -18,7 +18,7 @@ pipeline {
     stage('fastlane') {
       steps {
         container('fastlane') {
-          sh 'ls -a'
+          sh 'fastlane beta'
         }
       }
     }
