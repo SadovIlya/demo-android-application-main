@@ -18,7 +18,7 @@ pipeline {
     stage('fastlane') {
       steps {
         container('fastlane') {
-          sh 'fastlane prod'   
+          sh 'fastlane ${BUILD_TYPE}'   
           archiveArtifacts artifacts: 'app/build/outputs/bundle/release/app-release.aab',
                    allowEmptyArchive: true,
                    fingerprint: true,
