@@ -19,6 +19,7 @@ pipeline {
       steps {
         container('fastlane') {
           sh 'echo $JAVA_HOME'
+          sh 'ls /usr/lib/jvm'
         }
       }
     }
