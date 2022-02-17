@@ -18,7 +18,11 @@ pipeline {
     stage('fastlane') {
       steps {
         container('fastlane') {
-          sh 'fastlane beta'          
+          sh 'fastlane beta'   
+          archiveArtifacts artifacts: 'app/build/outputs/bundle/release/app-release.aab',
+                   allowEmptyArchive: true,
+                   fingerprint: true,
+                   onlyIfSuccessful: true       
         }
       }
     }
