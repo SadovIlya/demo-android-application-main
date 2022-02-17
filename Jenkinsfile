@@ -18,7 +18,7 @@ pipeline {
     stage('fastlane') {
       steps {
         container('fastlane') {
-          sh 'fastlane beta'
+          sh 'echo $JAVA_HOME'
         }
       }
     }
