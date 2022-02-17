@@ -18,6 +18,9 @@ appcenter distribute release --app lisavod/sadov-demo-android --file app/build/o
 #Сборка через fastline 
 fastlane init
 
+#плагин для appcenter fastlane
+fastlane add_plugin appcenter
+
 
 
 

@@ -23,6 +23,15 @@ platform :android do
 
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
+    update_android_strings(
+      xml_path: "app/src/main/res/values/strings.xml",
+      block: lambda { |strings|
+			# value must be a string, you can update what you want here.
+        strings['app_name'] = "Beta Demo Application"
+        #strings['b'] = "string keys"
+        #strings['c'] = "string keys"
+      }
+    )
     gradle(
       task: "clean assembleRelease",
       properties: {
@@ -30,6 +39,9 @@ platform :android do
         "android.injected.signing.store.password" => "123456",
         "android.injected.signing.key.alias" => "signFiles",
         "android.injected.signing.key.password" => "123456",
+        "applicationId": "com.anko.demoapp.beta",
+        "versionName": "2.0",
+        "buildNumber": "10"
       }
     )
     
