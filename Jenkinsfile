@@ -7,7 +7,7 @@ pipeline {
         spec:    
           containers:                      
           - name: fastlane
-            image: fastlanetools/fastlane
+            image: adrienthiery/react-native-android-fastlane
             command:
             - cat
             tty: true       
